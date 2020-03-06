@@ -133,8 +133,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - AudioAverage: 1.2099788
-    - AudioSub: 0.19869976
+    - AudioAverage: 0.7331098
+    - AudioSub: 0.1693271
     - Vector1_441D4F8B: 1
     - Vector1_5ACBDA59: 0.01
     - Vector1_60EBA4E2: 0

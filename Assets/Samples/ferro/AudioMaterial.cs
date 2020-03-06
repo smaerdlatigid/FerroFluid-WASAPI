@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.VFX;
 
-public class Shader2VFX : MonoBehaviour
+public class AudioMaterial : MonoBehaviour
 {
     public LoopbackAudio Audio;
-    VisualEffect vis;
+    public Material mat;
 
     void Start()
     {
-        vis =  GetComponent<VisualEffect>();
+        
     }
 
     Color height; 
@@ -18,8 +17,10 @@ public class Shader2VFX : MonoBehaviour
 
     void Update()
     {
-        vis.SetFloat("AudioAverage", Audio.WeightedAverage);
-        vis.SetFloat("AudioSub",Audio.WeightedPostScaledSpectrumData[0] );
+        //vis.SetFloat("SpawnRate",100.0f*Audio.Average+100f*Audio.WeightedPostScaledSpectrumData[0]);
+        //Audio.WeightedPostScaledSpectrumData[i]
+        mat.SetFloat("AudioAverage", Audio.WeightedAverage);
+        mat.SetFloat("AudioSub",Audio.WeightedPostScaledSpectrumData[0] );
                
         float[,] audioData = Audio.getBuffer(0);
 
@@ -39,6 +40,6 @@ public class Shader2VFX : MonoBehaviour
             }
         }
         texture.Apply();
-        vis.SetTexture("AudioSpectrum", texture);
+        mat.SetTexture("AudioSpectrum", texture);
     }
 }
